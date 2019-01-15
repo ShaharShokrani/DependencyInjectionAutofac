@@ -60,6 +60,7 @@ namespace DependencyInjectionAutofac
         {
             var log = new ConsoleLog();
 
+            //Specify the log in each of the objects.
             var engine = new Engine(log);
             var car = new Car(engine, log);
 
