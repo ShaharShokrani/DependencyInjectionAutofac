@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,13 +59,25 @@ namespace DependencyInjectionAutofac
     {
         public static void Main(string[] args)
         {
-            var log = new ConsoleLog();
+            ContainerBuilder builder = new ContainerBuilder();
 
-            //Specify the log in each of the objects.
-            var engine = new Engine(log);
-            var car = new Car(engine, log);
+            builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
+            builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
+            builder.RegisterType<Car>();
 
+            IContainer container = builder.Build();
+
+            ////The ConsoleLog could not be resolved unless we register it as self and the resolve will be available to ConsoleLog and ILog.
+            //ConsoleLog consoleLog = container.Resolve<ConsoleLog>();
+
+            Car car = container.Resolve<Car>();
             car.Go();
+
+            //var log = new ConsoleLog();
+
+            ////Specify the log in each of the objects.
+            //var engine = new Engine(log);
+            //var car = new Car(engine, log);
         }
     }
 }
