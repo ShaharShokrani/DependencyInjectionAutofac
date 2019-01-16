@@ -81,11 +81,15 @@ namespace DependencyInjectionAutofac
             //builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
             builder.RegisterType<EmailLog>().As<ILog>(); //Only changed this line of code in order to switch between ConsoleLog and EmailLog.
 
-            builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
-            //builder.RegisterType<Car>();
+            ////In case of unit testing, we would like to test specific instance:
+            //var log = new ConsoleLog();
+            //builder.RegisterInstance(log).As<ILog>();
 
-            //In case we would like using specific constructor:
-            builder.RegisterType<Car>().UsingConstructor(typeof(Engine));
+            builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
+            builder.RegisterType<Car>();
+
+            ////In case we would like using specific constructor:
+            //builder.RegisterType<Car>().UsingConstructor(typeof(Engine));
 
             IContainer container = builder.Build();
 
