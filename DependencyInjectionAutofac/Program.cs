@@ -20,6 +20,16 @@ namespace DependencyInjectionAutofac
         }
     }
 
+    public class EmailLog : ILog
+    {
+        private string _adminEmail = "admin@foo.com";
+
+        public void Write(string message)
+        {            
+            Console.WriteLine($"Email has been sent to {_adminEmail}: {message}");
+        }
+    }
+
     public class Engine
     {
         private ILog _log;
@@ -42,6 +52,12 @@ namespace DependencyInjectionAutofac
         private Engine _engine;
         private ILog _log;
 
+        public Car(Engine engine)
+        {
+            this._engine = engine;
+            this._log = new EmailLog();
+        }
+
         public Car(Engine engine, ILog log)
         {
             this._engine = engine;
@@ -61,11 +77,19 @@ namespace DependencyInjectionAutofac
         {
             ContainerBuilder builder = new ContainerBuilder();
 
-            builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
+            //If we leave this two lines 
+            //builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
+            builder.RegisterType<EmailLog>().As<ILog>(); //Only changed this line of code in order to switch between ConsoleLog and EmailLog.
+
             builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
-            builder.RegisterType<Car>();
+            //builder.RegisterType<Car>();
+
+            //In case we would like using specific constructor:
+            builder.RegisterType<Car>().UsingConstructor(typeof(Engine));
 
             IContainer container = builder.Build();
+
+
 
             ////The ConsoleLog could not be resolved unless we register it as self and the resolve will be available to ConsoleLog and ILog.
             //ConsoleLog consoleLog = container.Resolve<ConsoleLog>();
