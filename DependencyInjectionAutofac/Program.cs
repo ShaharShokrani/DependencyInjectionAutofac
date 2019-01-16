@@ -81,7 +81,12 @@ namespace DependencyInjectionAutofac
     {
         public static void Main(string[] args)
         {
-            ContainerBuilder builder = new ContainerBuilder();
+            if (true)
+            {
+                WithoutDI.Run();
+            }
+
+            //ContainerBuilder builder = new ContainerBuilder();
 
             //If we leave this two lines 
             //builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
@@ -111,17 +116,17 @@ namespace DependencyInjectionAutofac
             //If we need to use a generic collection:
             //IList<T> --> List<T>
             //IList<int> --> List<int>
-            builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>));
+            //builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>));
 
 
-            IContainer container = builder.Build();
+            //IContainer container = builder.Build();
 
-            //Car car = container.Resolve<Car>();
-            //car.Go();
+            ////Car car = container.Resolve<Car>();
+            ////car.Go();
 
-            var myList = container.Resolve<IList<int>>();
-            Console.WriteLine(myList.GetType().Name);
-            Console.WriteLine(myList.GetType());
+            //var myList = container.Resolve<IList<int>>();
+            //Console.WriteLine(myList.GetType().Name);
+            //Console.WriteLine(myList.GetType());
 
             //var log = new ConsoleLog();
 
