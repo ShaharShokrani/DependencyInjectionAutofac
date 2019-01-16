@@ -41,6 +41,12 @@ namespace DependencyInjectionAutofac
             this._id = new Random().Next();
         }
 
+        public Engine(ILog log, int Id)
+        {
+            this._log = log;
+            this._id = Id;
+        }
+
         public void Ahead(int power)
         {
             _log.Write($"Engine [{_id}] ahead {power} ");
@@ -85,7 +91,15 @@ namespace DependencyInjectionAutofac
             //var log = new ConsoleLog();
             //builder.RegisterInstance(log).As<ILog>();
 
-            builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
+            ////For testing, we would like to check a specific Id number:            
+            //var engine = new Engine(new ConsoleLog(), 123);
+            //builder.RegisterInstance(engine);
+
+            builder.Register((IComponentContext c) => new Engine(c.Resolve<ILog>(), 123));
+
+
+
+            //builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
             builder.RegisterType<Car>();
 
             ////In case we would like using specific constructor:
