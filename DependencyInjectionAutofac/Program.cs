@@ -85,7 +85,7 @@ namespace DependencyInjectionAutofac
 
             //If we leave this two lines 
             //builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
-            builder.RegisterType<EmailLog>().As<ILog>(); //Only changed this line of code in order to switch between ConsoleLog and EmailLog.
+            //builder.RegisterType<EmailLog>().As<ILog>(); //Only changed this line of code in order to switch between ConsoleLog and EmailLog.
 
             ////In case of unit testing, we would like to test specific instance:
             //var log = new ConsoleLog();
@@ -95,31 +95,41 @@ namespace DependencyInjectionAutofac
             //var engine = new Engine(new ConsoleLog(), 123);
             //builder.RegisterInstance(engine);
 
-            builder.Register((IComponentContext c) => new Engine(c.Resolve<ILog>(), 123));
+            //builder.Register((IComponentContext c) => new Engine(c.Resolve<ILog>(), 123));
 
 
 
             //builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
-            builder.RegisterType<Car>();
+            //builder.RegisterType<Car>();
 
             ////In case we would like using specific constructor:
             //builder.RegisterType<Car>().UsingConstructor(typeof(Engine));
 
-            IContainer container = builder.Build();
-
-
-
             ////The ConsoleLog could not be resolved unless we register it as self and the resolve will be available to ConsoleLog and ILog.
             //ConsoleLog consoleLog = container.Resolve<ConsoleLog>();
 
-            Car car = container.Resolve<Car>();
-            car.Go();
+            //If we need to use a generic collection:
+            //IList<T> --> List<T>
+            //IList<int> --> List<int>
+            builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>));
+
+
+            IContainer container = builder.Build();
+
+            //Car car = container.Resolve<Car>();
+            //car.Go();
+
+            var myList = container.Resolve<IList<int>>();
+            Console.WriteLine(myList.GetType().Name);
+            Console.WriteLine(myList.GetType());
 
             //var log = new ConsoleLog();
 
             ////Specify the log in each of the objects.
             //var engine = new Engine(log);
             //var car = new Car(engine, log);
+
+
         }
     }
 }
