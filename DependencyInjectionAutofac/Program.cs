@@ -81,16 +81,17 @@ namespace DependencyInjectionAutofac
     {
         public static void Main(string[] args)
         {
-            if (true)
+            if (false)
             {
                 WithoutDI.Run();
             }
+            if (true)
+            {
+                RegisteringTypes.Run();
+            }
+
 
             //ContainerBuilder builder = new ContainerBuilder();
-
-            //If we leave this two lines 
-            //builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
-            //builder.RegisterType<EmailLog>().As<ILog>(); //Only changed this line of code in order to switch between ConsoleLog and EmailLog.
 
             ////In case of unit testing, we would like to test specific instance:
             //var log = new ConsoleLog();
@@ -104,8 +105,7 @@ namespace DependencyInjectionAutofac
 
 
 
-            //builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component).
-            //builder.RegisterType<Car>();
+
 
             ////In case we would like using specific constructor:
             //builder.RegisterType<Car>().UsingConstructor(typeof(Engine));
