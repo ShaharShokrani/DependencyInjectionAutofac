@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace DependencyInjectionAutofac
 {
-    public class RegisteringTypes
+    public class DefaultRegistration
     {
         public static void Run()
         {
             ContainerBuilder builder = new ContainerBuilder();
-            
+
+            //If we leave this two lines 
             builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
-            builder.RegisterType<Engine>(); //Without this line an exception will be thrown (missing component)
+            builder.RegisterType<EmailLog>().As<ILog>().PreserveExistingDefaults(); //Only changed this line of code in order to switch between ConsoleLog and EmailLog.
+
+            //Without this line an exception will be thrown (missing component):
+            builder.RegisterType<Engine>(); 
             builder.RegisterType<Car>();
 
             IContainer container = builder.Build();
