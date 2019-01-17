@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LambdaExpressionComponent.cs" />
     <Compile Include="RegisteringInstances.cs" />
     <Compile Include="ChoiceOfContructor.cs" />
     <Compile Include="DefaultRegistration.cs" />

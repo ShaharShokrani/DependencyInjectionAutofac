@@ -93,26 +93,22 @@ namespace DependencyInjectionAutofac
             {
                 ChoiceOfContructor.Run();
             }
-            if (true)
+            if (false)
             {
                 RegisteringInstances.Run();
             }
+            if (true)
+            {
+                LambdaExpressionComponent.Run();
+            }
 
-            //builder.Register((IComponentContext c) => new Engine(c.Resolve<ILog>(), 123));
-
-
-
+            
 
             //If we need to use a generic collection:
             //IList<T> --> List<T>
             //IList<int> --> List<int>
             //builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>));
 
-
-            //IContainer container = builder.Build();
-
-            ////Car car = container.Resolve<Car>();
-            ////car.Go();
 
             //var myList = container.Resolve<IList<int>>();
             //Console.WriteLine(myList.GetType().Name);
