@@ -89,32 +89,19 @@ namespace DependencyInjectionAutofac
             {
                 RegisteringTypes.Run();
             }
-            if (true)
+            if (false)
             {
                 ChoiceOfContructor.Run();
             }
-
-
-            //ContainerBuilder builder = new ContainerBuilder();
-
-            ////In case of unit testing, we would like to test specific instance:
-            //var log = new ConsoleLog();
-            //builder.RegisterInstance(log).As<ILog>();
-
-            ////For testing, we would like to check a specific Id number:            
-            //var engine = new Engine(new ConsoleLog(), 123);
-            //builder.RegisterInstance(engine);
+            if (true)
+            {
+                RegisteringInstances.Run();
+            }
 
             //builder.Register((IComponentContext c) => new Engine(c.Resolve<ILog>(), 123));
 
 
 
-
-
-
-
-            ////The ConsoleLog could not be resolved unless we register it as self and the resolve will be available to ConsoleLog and ILog.
-            //ConsoleLog consoleLog = container.Resolve<ConsoleLog>();
 
             //If we need to use a generic collection:
             //IList<T> --> List<T>
@@ -130,13 +117,6 @@ namespace DependencyInjectionAutofac
             //var myList = container.Resolve<IList<int>>();
             //Console.WriteLine(myList.GetType().Name);
             //Console.WriteLine(myList.GetType());
-
-            //var log = new ConsoleLog();
-
-            ////Specify the log in each of the objects.
-            //var engine = new Engine(log);
-            //var car = new Car(engine, log);
-
 
         }
     }

@@ -17,7 +17,10 @@ namespace DependencyInjectionAutofac
             builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
             builder.RegisterType<EmailLog>().As<ILog>().PreserveExistingDefaults(); //Only changed this line of code in order to switch between ConsoleLog and EmailLog.
 
-            //Without this line an exception will be thrown (missing component):
+            ////The ConsoleLog could not be resolved unless we register it as self and the resolve will be available to ConsoleLog and ILog.
+            //builder.RegisterType<ConsoleLog>().As<ILog>().AsSelf();
+            //ConsoleLog consoleLog = container.Resolve<ConsoleLog>();
+
             builder.RegisterType<Engine>(); 
             builder.RegisterType<Car>();
 
