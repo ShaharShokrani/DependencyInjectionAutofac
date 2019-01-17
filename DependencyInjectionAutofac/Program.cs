@@ -97,23 +97,14 @@ namespace DependencyInjectionAutofac
             {
                 RegisteringInstances.Run();
             }
-            if (true)
+            if (false)
             {
                 LambdaExpressionComponent.Run();
             }
-
-            
-
-            //If we need to use a generic collection:
-            //IList<T> --> List<T>
-            //IList<int> --> List<int>
-            //builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>));
-
-
-            //var myList = container.Resolve<IList<int>>();
-            //Console.WriteLine(myList.GetType().Name);
-            //Console.WriteLine(myList.GetType());
-
+            if (true)
+            {
+                OpenGenericComponent.Run();
+            }            
         }
     }
 }
