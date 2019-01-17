@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChoiceOfContructor.cs" />
     <Compile Include="DefaultRegistration.cs" />
     <Compile Include="RegisteringTypes.cs" />
     <Compile Include="WithoutDI.cs" />

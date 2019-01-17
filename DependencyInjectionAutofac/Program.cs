@@ -85,9 +85,13 @@ namespace DependencyInjectionAutofac
             {
                 WithoutDI.Run();
             }
-            if (true)
+            if (false)
             {
                 RegisteringTypes.Run();
+            }
+            if (true)
+            {
+                ChoiceOfContructor.Run();
             }
 
 
@@ -107,8 +111,7 @@ namespace DependencyInjectionAutofac
 
 
 
-            ////In case we would like using specific constructor:
-            //builder.RegisterType<Car>().UsingConstructor(typeof(Engine));
+
 
             ////The ConsoleLog could not be resolved unless we register it as self and the resolve will be available to ConsoleLog and ILog.
             //ConsoleLog consoleLog = container.Resolve<ConsoleLog>();
