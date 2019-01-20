@@ -30,6 +30,21 @@ namespace DependencyInjectionAutofac
         }
     }
 
+    public class SMSLog : ILog
+    {
+        private string _phoneNumber;
+
+        public SMSLog(string phoneNumber)
+        {
+            this._phoneNumber = phoneNumber;
+        }
+
+        public void Write(string message)
+        {
+            Console.WriteLine($"SMS has been sent to {this._phoneNumber}: {message}");
+        }
+    }
+
     public class Engine
     {
         private ILog _log;
@@ -101,10 +116,26 @@ namespace DependencyInjectionAutofac
             {
                 LambdaExpressionComponent.Run();
             }
-            if (true)
+            if (false)
             {
                 OpenGenericComponent.Run();
-            }            
+            }
+            if (false)
+            {
+                PassingParametersToRegister.Run_NamedParameter();
+            }
+            if (false)
+            {
+                PassingParametersToRegister.Run_TypedParameter();
+            }
+            if (false)
+            {
+                PassingParametersToRegister.Run_ResolvedParameter();
+            }
+            if (true)
+            {
+                PassingParametersToRegister.Run_LambdaParameter();
+            }
         }
     }
 }

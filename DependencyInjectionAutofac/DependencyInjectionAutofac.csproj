@@ -46,13 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpenGenericComponent.cs" />
-    <Compile Include="LambdaExpressionComponent.cs" />
-    <Compile Include="RegisteringInstances.cs" />
-    <Compile Include="ChoiceOfContructor.cs" />
-    <Compile Include="DefaultRegistration.cs" />
-    <Compile Include="RegisteringTypes.cs" />
-    <Compile Include="WithoutDI.cs" />
+    <Compile Include="Section2 - Advanced Registrations Concepts\PassingParametersToRegister.cs" />
+    <Compile Include="Section1 - Registrations Concepts\OpenGenericComponent.cs" />
+    <Compile Include="Section1 - Registrations Concepts\LambdaExpressionComponent.cs" />
+    <Compile Include="Section1 - Registrations Concepts\RegisteringInstances.cs" />
+    <Compile Include="Section1 - Registrations Concepts\ChoiceOfContructor.cs" />
+    <Compile Include="Section1 - Registrations Concepts\DefaultRegistration.cs" />
+    <Compile Include="Section1 - Registrations Concepts\RegisteringTypes.cs" />
+    <Compile Include="Section1 - Registrations Concepts\WithoutDI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,5 +61,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,12 +14,12 @@ namespace DependencyInjectionAutofac
             ContainerBuilder builder = new ContainerBuilder();
 
             builder.RegisterType<ConsoleLog>().As<ILog>(); //If someone ask for ILog give them ConsoleLog
-            builder.Register((IComponentContext c) => new Engine(c.Resolve<ILog>(), 123));
+            builder.RegisterType<Engine>();
             builder.RegisterType<Car>();
 
             IContainer container = builder.Build();
-            Car car = container.Resolve<Car>();
 
+            Car car = container.Resolve<Car>();
             car.Go();
         }
     }

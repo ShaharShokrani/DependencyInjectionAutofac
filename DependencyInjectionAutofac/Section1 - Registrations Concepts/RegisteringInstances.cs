@@ -24,8 +24,8 @@ namespace DependencyInjectionAutofac
             builder.RegisterType<Car>();
 
             IContainer container = builder.Build();
-            Car car = container.Resolve<Car>();
 
+            Car car = container.Resolve<Car>();
             car.Go();
         }
     }
