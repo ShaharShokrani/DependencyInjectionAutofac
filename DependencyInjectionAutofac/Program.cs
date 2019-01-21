@@ -96,46 +96,6 @@ namespace DependencyInjectionAutofac
     {
         public static void Main(string[] args)
         {
-            if (false)
-            {
-                WithoutDI.Run();
-            }
-            if (false)
-            {
-                RegisteringTypes.Run();
-            }
-            if (false)
-            {
-                ChoiceOfContructor.Run();
-            }
-            if (false)
-            {
-                RegisteringInstances.Run();
-            }
-            if (false)
-            {
-                LambdaExpressionComponent.Run();
-            }
-            if (false)
-            {
-                OpenGenericComponent.Run();
-            }
-            if (false)
-            {
-                PassingParametersToRegister.Run_NamedParameter();
-            }
-            if (false)
-            {
-                PassingParametersToRegister.Run_TypedParameter();
-            }
-            if (false)
-            {
-                PassingParametersToRegister.Run_ResolvedParameter();
-            }
-            if (true)
-            {
-                PassingParametersToRegister.Run_LambdaParameter();
-            }
         }
     }
 }

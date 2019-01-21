@@ -1,16 +1,17 @@
-﻿using Autofac;
-using Autofac.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Autofac;
+using Autofac.Core;
+using DependencyInjectionAutofac;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DependencyInjectionAutofac
+namespace DependencyInjectionWithAutofac
 {
-    public class PassingParametersToRegister
+    [TestClass]
+    public class Section2
     {
-        public static void Run_NamedParameter()
+        [TestMethod]
+        public void PassingParametersToRegister_NamedParameter()
         {
             ContainerBuilder builder = new ContainerBuilder();
 
@@ -27,7 +28,8 @@ namespace DependencyInjectionAutofac
             car.Go();
         }
 
-        public static void Run_TypedParameter()
+        [TestMethod]
+        public void PassingParametersToRegister_TypedParameter()
         {
             ContainerBuilder builder = new ContainerBuilder();
 
@@ -44,7 +46,8 @@ namespace DependencyInjectionAutofac
             car.Go();
         }
 
-        public static void Run_ResolvedParameter()
+        [TestMethod]
+        public void PassingParametersToRegister_ResolvedParameter()
         {
             ContainerBuilder builder = new ContainerBuilder();
 
@@ -69,7 +72,8 @@ namespace DependencyInjectionAutofac
             car.Go();
         }
 
-        public static void Run_LambdaParameter()
+        [TestMethod]
+        public void PassingParametersToRegister_LambdaParameter()
         {
             ContainerBuilder builder = new ContainerBuilder();
 

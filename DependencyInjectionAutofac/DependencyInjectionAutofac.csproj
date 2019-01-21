@@ -46,14 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Section2 - Advanced Registrations Concepts\PassingParametersToRegister.cs" />
-    <Compile Include="Section1 - Registrations Concepts\OpenGenericComponent.cs" />
-    <Compile Include="Section1 - Registrations Concepts\LambdaExpressionComponent.cs" />
-    <Compile Include="Section1 - Registrations Concepts\RegisteringInstances.cs" />
-    <Compile Include="Section1 - Registrations Concepts\ChoiceOfContructor.cs" />
-    <Compile Include="Section1 - Registrations Concepts\DefaultRegistration.cs" />
-    <Compile Include="Section1 - Registrations Concepts\RegisteringTypes.cs" />
-    <Compile Include="Section1 - Registrations Concepts\WithoutDI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
