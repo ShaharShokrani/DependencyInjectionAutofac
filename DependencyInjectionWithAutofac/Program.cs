@@ -92,10 +92,44 @@ namespace DependencyInjectionAutofac
         }
     }
 
-    public class Program
+    public class Parent
     {
-        public static void Main(string[] args)
+        public override string ToString()
         {
+            return "I'm your parent!";
+        }
+    }
+
+    public class Child
+    {
+        public string Name { get; set; }
+        public Parent Parent { get; set; }
+
+        public void SetParent(Parent parent)
+        {
+            this.Parent = parent;
+        }
+    }
+
+    public interface IMyChild
+    {
+        void Foo();
+    }
+
+    public class MyChild : IMyChild
+    {
+        public void Foo()
+        {          
+        }
+    }
+
+    public class MyParent
+    {
+        private IMyChild _child;
+
+        public MyParent(IMyChild child)
+        {
+            this._child = child;
         }
     }
 }
