@@ -42,14 +42,14 @@ namespace DependencyInjectionWithAutofac
             void DoOption();
         }
 
-        private class IOption1Factory1<Option1> : IOptionFactory<IOption>
+        private class IOption1Factory1<SomeOption> : IOptionFactory<IOption>
         {
             public void DoOption()
             {
                 Console.Write("IOption1Factory1");
             }
         }
-        private class IOption1Factory2<Option2> : IOptionFactory<IOption>
+        private class IOption1Factory2<SomeOption> : IOptionFactory<IOption>
         {
             public void DoOption()
             {
