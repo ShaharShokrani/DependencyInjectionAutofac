@@ -57,6 +57,7 @@
     <Compile Include="Section1 - Registrations Concepts\Section1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Section2 - Advanced Registrations Concepts\Section2.cs" />
+    <Compile Include="Section5 - Implicit Relationship Types\GenericEnumerations.cs" />
     <Compile Include="Section5 - Implicit Relationship Types\Enumerations.cs" />
   </ItemGroup>
   <ItemGroup>
