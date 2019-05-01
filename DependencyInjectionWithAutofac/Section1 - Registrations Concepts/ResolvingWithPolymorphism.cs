@@ -29,6 +29,30 @@ namespace DependencyInjectionWithAutofac
             }
         }
 
+
+        [TestMethod]
+        public void ResolvingWithPolymorphism_OneLiner()
+        {
+            var cb = new ContainerBuilder();
+            cb.Register<A>((c, p) =>
+            {
+                B myB = c.Resolve<B>(p);
+                return new A(myB);
+            });
+            cb.Register<B>((c, p) => {
+                C myC = p.Named<C>("myC");
+                return new B(myC);
+            });
+            using (var c = cb.Build())
+            {
+                A myA = c.Resolve<A>(new NamedParameter("myC", new C()));
+
+                Console.Write(myA);
+
+                //OUTPUT: I'm A with B of I'm B with C of I'm C
+            }
+        }
+
         private class C
         {
             public override string ToString()
