@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DependencyInjectionWithAutofac
 {
     [TestClass]
-    public class Section2
+    public partial class Section3
     {
         [TestMethod]
         public void PassingParametersToRegister_NamedParameter()
@@ -221,6 +221,19 @@ namespace DependencyInjectionWithAutofac
             SMSLog car = container.Resolve<SMSLog>();
 //            Engine car = container.Resolve<Engine>();
             //car.Go();
+        }
+
+        [TestMethod]
+        public void ScanningForModule()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterAssemblyModules(typeof(Section3).Assembly);
+            //builder.RegisterAssemblyModules<ParentChildModule>(typeof(Section3).Assembly);
+
+            IContainer container = builder.Build();
+
+            var parent = container.Resolve<Child>().Parent;
+            Console.WriteLine(parent); //This will result in output.
         }
 
         //[TestMethod]

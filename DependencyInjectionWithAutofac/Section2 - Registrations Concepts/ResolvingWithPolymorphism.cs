@@ -8,8 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DependencyInjectionWithAutofac
 {
-    [TestClass]
-    public class Section3
+    public partial class Section3
     {
         [TestMethod]
         public void ResolvingWithPolymorphism()

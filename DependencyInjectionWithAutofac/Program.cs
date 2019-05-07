@@ -111,6 +111,16 @@ namespace DependencyInjectionAutofac
         }
     }
 
+    public class ParentChildModule : Module
+    {
+        //Module register both Parent as well as child
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterType<Parent>();
+            builder.Register(c => new Child() { Parent = c.Resolve<Parent>() });
+        }
+    }
+
     public interface IMyChild
     {
         void Foo();
