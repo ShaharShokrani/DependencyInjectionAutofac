@@ -7,15 +7,14 @@ using DependencyInjectionAutofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DependencyInjectionWithAutofac
-{
-    [TestClass]
-    public class Enumerations
+{    
+    public partial class Section4
     {
-        private class Reporting
+        private class EnumerationsReport
         {
             private IList<ILog> _allLogs;
 
-            public Reporting(IList<ILog> allLogs)
+            public EnumerationsReport(IList<ILog> allLogs)
             {
                 if (allLogs == null)
                 {
@@ -41,11 +40,11 @@ namespace DependencyInjectionWithAutofac
             builder.Register(c => new SMSLog("+123456789")).As<ILog>();
             builder.RegisterType<ConsoleLog>().As<ILog>();
             builder.RegisterType<EmailLog>().As<ILog>();
-            builder.RegisterType<Reporting>();
+            builder.RegisterType<EnumerationsReport>();
 
             using (var container = builder.Build())
             {
-                container.Resolve<Reporting>().Report();
+                container.Resolve<EnumerationsReport>().Report();
             }
         }
     }
