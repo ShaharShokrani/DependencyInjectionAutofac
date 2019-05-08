@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Section3 - Advanced Registrations Concepts\Section3.cs" />
     <Compile Include="Section2 - Registrations Concepts\ResolvingWithPolymorphism.cs" />
+    <Compile Include="Section4 - Implicit Relationship Types\KeyedServiceLookup.cs" />
     <Compile Include="Section4 - Implicit Relationship Types\MetadataInterrogation.cs" />
     <Compile Include="Section4 - Implicit Relationship Types\Section4.cs" />
     <Compile Include="Section5 - Implicit Relationship Types\GenericEnumerations.cs" />
