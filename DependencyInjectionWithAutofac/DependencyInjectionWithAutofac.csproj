@@ -61,7 +61,7 @@
     <Compile Include="Section4 - Implicit Relationship Types\KeyedServiceLookup.cs" />
     <Compile Include="Section4 - Implicit Relationship Types\MetadataInterrogation.cs" />
     <Compile Include="Section4 - Implicit Relationship Types\Section4.cs" />
-    <Compile Include="Section5 - Implicit Relationship Types\GenericEnumerations.cs" />
+    <Compile Include="Section4 - Implicit Relationship Types\GenericEnumerations.cs" />
     <Compile Include="Section4 - Implicit Relationship Types\Enumerations.cs" />
   </ItemGroup>
   <ItemGroup>

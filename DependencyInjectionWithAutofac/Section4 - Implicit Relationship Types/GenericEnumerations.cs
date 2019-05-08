@@ -7,9 +7,8 @@ using DependencyInjectionAutofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DependencyInjectionWithAutofac
-{
-    [TestClass]
-    public class GenericEnumerations
+{    
+    public partial class Section4
     {
         private class Reporting
         {
@@ -66,7 +65,7 @@ namespace DependencyInjectionWithAutofac
         }
 
         [TestMethod]
-        public void PassingParametersToRegister_NamedParameter()
+        public void GenericEnumerationsTest()
         {
             ContainerBuilder builder = new ContainerBuilder();
 

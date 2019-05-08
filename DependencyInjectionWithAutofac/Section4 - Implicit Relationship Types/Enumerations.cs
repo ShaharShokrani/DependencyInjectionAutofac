@@ -33,7 +33,7 @@ namespace DependencyInjectionWithAutofac
         }
 
         [TestMethod]
-        public void PassingParametersToRegister_NamedParameter()
+        public void EnumerationsTest()
         {
             ContainerBuilder builder = new ContainerBuilder();
 
