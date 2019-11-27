@@ -104,12 +104,15 @@ namespace DependencyInjectionAutofac
     {
         public string Name { get; set; }
         public Parent Parent { get; set; }
+        public IParent Parent2 { get; set; }
 
         public void SetParent(Parent parent)
         {
             this.Parent = parent;
         }
     }
+
+    public interface IParent { }
 
     public class ParentChildModule : Module
     {

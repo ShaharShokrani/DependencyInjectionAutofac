@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Autofac;
 using Autofac.Core;
+using Autofac.Extras.Moq;
 using DependencyInjectionAutofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -112,7 +113,34 @@ namespace DependencyInjectionWithAutofac
 
             var container = builder.Build();
             var parent = container.Resolve<Child>().Parent;
-            Console.WriteLine(parent); //This will result in no output.
+            Console.WriteLine(parent);
+        }
+
+        /// <summary>
+        /// https://stackoverflow.com/q/58963632/6844481
+        /// </summary>
+        [TestMethod]
+        public void PropertyInjection_AutoMock_PropertiesAutowired()
+        {            
+            Action<ContainerBuilder> actionCB = delegate(ContainerBuilder cb)
+            {
+                cb.RegisterType<ServiceFoo>().As<IService>();
+                cb.RegisterType<ViewModelBase>().PropertiesAutowired(); //The autofac will go to every single property and try to resolve it.
+            };
+
+            var mock = AutoMock.GetLoose(actionCB);
+            
+            var viewModelBase = mock.Create<ViewModelBase>();            
+            Assert.IsNotNull(viewModelBase.Service);
+
+            var mock2 = AutoMock.GetLoose();
+            var viewModelBase2 = mock2.Create<ViewModelBase>();
+            Assert.IsNull(viewModelBase2.Service);
+        }
+
+        public class ViewModelBase
+        {
+            public IService Service { get; set; }
         }
 
         [TestMethod]
@@ -249,5 +277,12 @@ namespace DependencyInjectionWithAutofac
 
         //    MyClass car = container.Resolve<MyClass>();
         //}
+    }
+
+    public interface IService
+    {
+    }
+    public class ServiceFoo : IService
+    {
     }
 }
