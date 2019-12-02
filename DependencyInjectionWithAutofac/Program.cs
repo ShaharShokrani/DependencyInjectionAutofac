@@ -12,8 +12,13 @@ namespace DependencyInjectionAutofac
         void Write(string message);
     }
 
-    public class ConsoleLog : ILog
+    public class ConsoleLog : ILog, IDisposable
     {
+        public void Dispose()
+        {
+            Console.WriteLine("Consoe log has been disposed.");
+        }
+
         public void Write(string message)
         {
             Console.WriteLine(message);
@@ -103,16 +108,12 @@ namespace DependencyInjectionAutofac
     public class Child
     {
         public string Name { get; set; }
-        public Parent Parent { get; set; }
-        public IParent Parent2 { get; set; }
-
+        public Parent Parent { get; set; }        
         public void SetParent(Parent parent)
         {
             this.Parent = parent;
         }
-    }
-
-    public interface IParent { }
+    }    
 
     public class ParentChildModule : Module
     {
