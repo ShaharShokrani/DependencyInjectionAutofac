@@ -78,6 +78,7 @@
     <Compile Include="Section4 - Implicit Relationship Types\Section4.cs" />
     <Compile Include="Section4 - Implicit Relationship Types\GenericEnumerations.cs" />
     <Compile Include="Section4 - Implicit Relationship Types\Enumerations.cs" />
+    <Compile Include="Section5 - Controlling Scope And Lifetime\CaptiveDependencies.cs" />
     <Compile Include="Section5 - Controlling Scope And Lifetime\Disposal.cs" />
     <Compile Include="Section5 - Controlling Scope And Lifetime\InstanceScope.cs" />
   </ItemGroup>
