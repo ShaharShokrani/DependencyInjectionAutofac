@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DependencyInjectionWithAutofac
 {
     [TestClass]
-    public class Section2
+    public partial class Section2
     {
         [TestMethod]
         public void WithoutDI()
