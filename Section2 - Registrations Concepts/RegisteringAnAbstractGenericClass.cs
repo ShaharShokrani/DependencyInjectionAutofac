@@ -19,11 +19,11 @@ namespace DependencyInjectionWithAutofac
             ContainerBuilder builder = new ContainerBuilder();
 
             builder.RegisterType<CommonArgs>();
-            builder.RegisterType<TestHandler>();
+            builder.RegisterType<TestHandler>().Named("myTestHandler", typeof(AbstractHandler<CommonArgs>));
 
             IContainer container = builder.Build();
 
-            var testHandler = container.Resolve<TestHandler>();
+            var testHandler = container.ResolveNamed("myTestHandler", typeof(AbstractHandler<CommonArgs>));
             Console.WriteLine(testHandler.ToString()); //OUTPUT: TestHandler has been activated!
 
             Assert.AreEqual(testHandler.ToString(), "TestHandler has been activated!");            
