@@ -16,9 +16,7 @@ namespace DependencyInjectionWithAutofac
         [TestMethod]
         public void RegisteringAnAbstractGenericClassTest()
         {
-            ContainerBuilder builder = new ContainerBuilder();
-
-            builder.RegisterType<CommonArgs>();
+            ContainerBuilder builder = new ContainerBuilder();            
             builder.RegisterType<TestHandler>().Named("myTestHandler", typeof(AbstractHandler<CommonArgs>));
 
             IContainer container = builder.Build();
@@ -26,7 +24,7 @@ namespace DependencyInjectionWithAutofac
             var testHandler = container.ResolveNamed("myTestHandler", typeof(AbstractHandler<CommonArgs>));
             Console.WriteLine(testHandler.ToString()); //OUTPUT: TestHandler has been activated!
 
-            Assert.AreEqual(testHandler.ToString(), "TestHandler has been activated!");            
+            Assert.AreEqual(testHandler.ToString(), "TestHandler has been activated!");
         }
 
 
